@@ -28,8 +28,6 @@ wristHorizontal.throttle=0
 elbow=kit.continuous_servo[8]
 elbow.throttle=0
 
-Sstop=0
-Bstop=0.1
 #Set pins for servo control
 #middle,ring and pinky fingers are controlled together
 fingergroupPinH=Button(7,pull_up=False)
