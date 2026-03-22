@@ -1,6 +1,6 @@
 import time
 from adafruit_servokit import ServoKit
-from gpiozero import MCP3008, DigitalInputDevice, Button
+from gpiozero import Button
 from signal import pause
 import functions as f
 # Set channels to the number of servo channels on your kit.
@@ -30,23 +30,23 @@ elbow.throttle=0
 
 #Set pins for servo control
 #middle,ring and pinky fingers are controlled together
-fingergroupPinH=Button(7,pull_up=False)
-fingergroupPinL=Button(8,pull_up=False)
+fingergroupPinH=Button(4,pull_up=False)
+fingergroupPinL=Button(14,pull_up=False)
 #index finger is controlled separately
-fingerindexPinH=Button(11,pull_up=False)
-fingerindexPinL=Button(12,pull_up=False)
-fingerThumbPinH=Button(15,pull_up=False)
-fingerThumbPinL=Button(16,pull_up=False)
+fingerindexPinH=Button(17,pull_up=False)
+fingerindexPinL=Button(18,pull_up=False)
+fingerThumbPinH=Button(22,pull_up=False)
+fingerThumbPinL=Button(23,pull_up=False)
 #wrist has 3 degrees of freedom, each controlled separately
-wristLeftPinH=Button(21,pull_up=False)
-wristLeftPinL=Button(22,pull_up=False)
-wristRightPinH=Button(23,pull_up=False)
-wristRightPinL=Button(24,pull_up=False)
-wristHorizontalPinH=Button(31,pull_up=False)
-wristHorizontalPinL=Button(32,pull_up=False)
+wristLeftPinH=Button(9,pull_up=False)
+wristLeftPinL=Button(25,pull_up=False)
+wristRightPinH=Button(11,pull_up=False)
+wristRightPinL=Button(8 ,pull_up=False)
+wristHorizontalPinH=Button(6,pull_up=False)
+wristHorizontalPinL=Button(12,pull_up=False)
 
-elbowPinH=Button(35,pull_up=False)
-elbowPinL=Button(36,pull_up=False)
+elbowPinH=Button(19,pull_up=False)
+elbowPinL=Button(16,pull_up=False)
 time.sleep(1)
 while True:
     #move fingers:pinky, ring and middle fingers
