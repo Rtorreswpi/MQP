@@ -32,11 +32,13 @@ elbow.throttle=0
 #middle,ring and pinky fingers are controlled together
 fingergroupPinH=DigitalInputDevice(4,pull_up=True)
 fingergroupPinL=DigitalInputDevice(14,pull_up=True)
+
 #index finger is controlled separately
 # fingerindexPinH=DigitalInputDevice(17,pull_up=True)
 # fingerindexPinL=DigitalInputDevice(18,pull_up=True)
 # fingerThumbPinH=DigitalInputDevice(22,pull_up=True)
 # fingerThumbPinL=DigitalInputDevice(23,pull_up=True)
+
 #wrist has 3 degrees of freedom, each controlled separately
 wristLeftPinH=DigitalInputDevice(9,pull_up=True)
 wristLeftPinL=DigitalInputDevice(25,pull_up=True)
