@@ -1,0 +1,9 @@
+cd MQP
+source .venv/bin/activate
+code .
+
+pip3 install adafruit-circuitpython-servokit
+pip install lgpio
+pip install gpiozero
+
+remember to turn PSU max usage to 3A
