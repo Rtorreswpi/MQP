@@ -50,9 +50,6 @@ elbowPinL=DigitalInputDevice(16,pull_up=True)
 time.sleep(1)
 while True:
     #move fingers:pinky, ring and middle fingers
-    if wristHorizontalPinH.value == 1:
-        print("Signal received")
-    print(wristHorizontalPinH.value,wristHorizontalPinL.value)
     f.setServoThrottleFilter(finger1, fingergroupPinH.value, fingergroupPinL.value,"small")
     f.setServoThrottleFilter(finger2, fingergroupPinH.value, fingergroupPinL.value,"small")
     f.setServoThrottleFilter(finger3, fingergroupPinH.value, fingergroupPinL.value,"small")
