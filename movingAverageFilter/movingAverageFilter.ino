@@ -2,7 +2,7 @@
 #define EMG_PIN_CH1     A0        
 #define EMG_PIN_CH2     A1        
 #define SAMPLE_RATE_HZ  1000
-#define WINDOW_SIZE     20
+#define WINDOW_SIZE     50
 #define ADC_RESOLUTION  12
 
 // Moving Average Filter
@@ -55,9 +55,9 @@ struct EMGChannel {
     bool isActive() const { return filteredValue > threshold; }
     bool isReady()  const { return filter.isReady(); }
 };
-
-EMGChannel ch1("Biceps",   EMG_PIN_CH1, 0.65f); //change the third variable for active.
-EMGChannel ch2("Triceps", EMG_PIN_CH2, 0.65f); //change the third variable for active. 
+//biceps 0.1f, triceps 0.04f
+EMGChannel ch1("Biceps",   EMG_PIN_CH1, 0.1f); //change the third variable for active.
+EMGChannel ch2("Triceps", EMG_PIN_CH2, 0.08f); //change the third variable for active. 
 
 uint32_t lastSampleTime = 0;
 const uint32_t SAMPLE_INTERVAL_US = 1000000 / SAMPLE_RATE_HZ;
@@ -71,7 +71,8 @@ void setup() {
 
     pinMode(EMG_PIN_CH1, INPUT);
     pinMode(EMG_PIN_CH2, INPUT);
-
+    pinMode(13, OUTPUT);
+}
 // Main Loop
 
 void loop() {
@@ -89,7 +90,9 @@ void loop() {
         Serial.println(ch2.filteredValue, 4);
 
         if (ch1.isReady() && ch2.isReady()) {
-            processEMGSignal(ch1, ch2);
+            if (ch1.isActive()) digitalWrite(13,HIGH);
+            else digitalWrite(13,LOW);
+            // processEMGSignal(ch1, ch2);
         }
     }
 }
