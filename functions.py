@@ -5,10 +5,10 @@ from gpiozero import MCP3008, DigitalInputDevice
 
 def setServoThrottleFilter(servo, pin1, pin2,servoType):
     """Sets the throttle of a servo based on the state of two pins"""
-    if pin1 == True and pin2 == False:
+    if pin1 == 1 and pin2 == 0:
         servo.throttle = 1
         print("moving servo: " + str(servo) + " forward")
-    elif pin1 == False and pin2 == True:
+    elif pin1 == 0 and pin2 == 1:
         print("moving servo: " + str(servo) + " backward")
         servo.throttle = -1
     else:#large servos need a small amount of throttle to hold position, small servos can be stopped completely
