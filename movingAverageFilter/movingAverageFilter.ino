@@ -4,6 +4,38 @@
 #define SAMPLE_RATE_HZ  1000
 #define WINDOW_SIZE     50
 #define ADC_RESOLUTION  12
+#define EEG_PIN            A2
+#define WINDOW_US 1000000  // 1 second
+#define THRESHOLD         50
+// #define MIN_PEAK_SPACING   1//ms (prevents double counting)
+#define EXPECTED_PEAKS     6//max peaks expected in a second
+
+//vars
+int prev = 0;
+int curr = 0;
+
+int peakcount = 0;
+uint32_t windowStart = 0;
+
+uint32_t lastSampleTime = 0;
+uint32_t lastPeakTime = 0;
+uint32_t lastWindowTime = 0;
+
+float dt = 0.001;   // 1 kHz
+
+// High-pass
+float RC_high = 0.1;//set to 61hz
+float a_high;
+
+// Low-pass
+float RC_low = 0.01;//set to 59hz
+float a_low;
+
+// State variables
+float prevInput = 0.0;
+float prevHigh = 0.0;
+float prevLow = 0.0;
+
 
 // Moving Average Filter
 class MovingAverageFilter {
@@ -59,7 +91,6 @@ struct EMGChannel {
 EMGChannel ch1("Biceps",   EMG_PIN_CH1, 0.1f); //change the third variable for active.
 EMGChannel ch2("Triceps", EMG_PIN_CH2, 0.08f); //change the third variable for active. 
 
-uint32_t lastSampleTime = 0;
 const uint32_t SAMPLE_INTERVAL_US = 1000000 / SAMPLE_RATE_HZ;
 
 // Setup Code
@@ -71,7 +102,34 @@ void setup() {
 
     pinMode(EMG_PIN_CH1, INPUT);
     pinMode(EMG_PIN_CH2, INPUT);
-    pinMode(13, OUTPUT);
+    // pinMode(13, OUTPUT); LED
+    a_high = RC_high / (RC_high + dt);
+    a_low  = dt / (RC_low + dt);
+    pinMode(A6, OUTPUT);
+    pinMode(A7, OUTPUT);
+    pinMode(A8,OUTPUT)
+    pinMode(A9,OUTPUT)
+
+    digitalWrite(A6, LOW);  // idle
+    digitalWrite(A7, LOW);
+    digitalWrite(A8, LOW);
+    digitalWrite(A9, LOW);
+}
+
+bool inpeak = false;
+
+bool detectPeak(int curr) {
+    bool isAbove = curr > THRESHOLD;
+    
+    if (isAbove && !inpeak) {
+        inpeak = true;
+        return true;   // rising edge → count peak
+    }
+    else if (!isAbove && inpeak) {
+        inpeak = false; // reset when signal drops
+    }
+
+    return false;
 }
 // Main Loop
 
@@ -90,9 +148,55 @@ void loop() {
         Serial.println(ch2.filteredValue, 4);
 
         if (ch1.isReady() && ch2.isReady()) {
-            if (ch1.isActive()) digitalWrite(13,HIGH);
-            else digitalWrite(13,LOW);
+            if (ch1.isActive()) {
+                digitalWrite(A6,HIGH);
+                digitalWrite(A7, LOW);
+            }
+            else {
+                digitalWrite(A7,HIGH);
+                digitalWrite(A6, LOW);
+            }
             // processEMGSignal(ch1, ch2);
         }
+
     }
+ // --- EEG sampling (runs every loop, non-blocking) ---
+int signal = analogRead(EEG_PIN);
+
+// High-pass
+float high = highpass(a_high, prevHigh, signal, prevInput);
+
+// Low-pass
+float low = lowpass(prevLow, a_low, high);
+
+prevInput = signal;
+prevHigh = high;
+prevLow = low;
+
+// Detect peaks
+if (detectPeak(low)) {
+    peakcount++;
+}
+
+// --- Window timing (1 second) ---
+if (micros() - windowStart >= WINDOW_US) {
+    Serial.println(peakcount);
+
+    if (peakcount > EXPECTED_PEAKS) {
+        digitalWrite(A8, HIGH);
+        digitalWrite(A8, LOW);
+    } else {
+        digitalWrite(A8, LOW);
+        digitalWrite(A9, HIGH);
+    }
+
+    peakcount = 0;               // reset for next window
+    windowStart = micros();      // restart window
+}
+}
+float highpass(float a_high, float prevHigh, float input, float prevInput){
+  return a_high * prevHigh + a_high * (input - prevInput);
+}
+float lowpass(float prevLow, float a_low, float high){
+  return prevLow + a_low * (high - prevLow);
 }
