@@ -107,8 +107,8 @@ void setup() {
     a_low  = dt / (RC_low + dt);
     pinMode(A6, OUTPUT);
     pinMode(A7, OUTPUT);
-    pinMode(A8,OUTPUT)
-    pinMode(A9,OUTPUT)
+    pinMode(A8,OUTPUT);
+    pinMode(A9,OUTPUT);
 
     digitalWrite(A6, LOW);  // idle
     digitalWrite(A7, LOW);
