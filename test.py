@@ -26,18 +26,19 @@ wristHorizontal.throttle=0.1
 #elbow servo
 elbow=kit.continuous_servo[8]
 elbow.throttle=0.1
-
+throttleHigh=0.5
+throttleLow=-0.5
 kit = ServoKit(channels=16)
 while True:
-    finger1.throttle=1
+    finger1.throttle=throttleHigh
     time.sleep(0.2)
-    finger2.throttle=1
+    finger2.throttle=throttleHigh
     time.sleep(0.2)
-    finger3.throttle=1
+    finger3.throttle=throttleHigh
     time.sleep(0.2)
-    finger4.throttle=1
+    finger4.throttle=throttleHigh
     time.sleep(0.2)
-    finger5.throttle=1
+    finger5.throttle=throttleHigh
     time.sleep(0.2)
     finger1.throttle=0
     time.sleep(0.2)
@@ -49,15 +50,15 @@ while True:
     time.sleep(0.2)
     finger5.throttle=0
     time.sleep(1)
-    finger1.throttle=-1
+    finger1.throttle=throttleLow
     time.sleep(0.2)
-    finger2.throttle=-1
+    finger2.throttle=throttleLow
     time.sleep(0.2)
-    finger3.throttle=-1
+    finger3.throttle=throttleLow
     time.sleep(0.2)
-    finger4.throttle=-1
+    finger4.throttle=throttleLow
     time.sleep(0.2)
-    finger5.throttle=-1
+    finger5.throttle=throttleLow
     time.sleep(0.2)
     finger1.throttle=0
     time.sleep(0.2)
