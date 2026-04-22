@@ -2,16 +2,70 @@ import time
 from adafruit_servokit import ServoKit
 from gpiozero import Button, DigitalInputDevice
 from signal import pause
-import functions as f
+# Set channels to the number of servo channels on your kit.
+# 8 for FeatherWing, 16 for Shield/HAT/Bonnet.
 kit = ServoKit(channels=16)
-pinA6 = DigitalInputDevice(4, pull_up=True)
-pinA7 = DigitalInputDevice(14, pull_up=True)
+#finger servos
 finger1=kit.continuous_servo[0]#pinky
-finger1.throttle=0.1
+finger1.throttle=0
+finger2=kit.continuous_servo[1]#ring
+finger2.throttle=0
+finger3=kit.continuous_servo[2]#middle
+finger3.throttle=0
+finger4=kit.continuous_servo[3]#pointer
+finger4.throttle=0
+finger5=kit.continuous_servo[4]#thumb
+finger5.throttle=0
+#wrist servos
+wristRight=kit.continuous_servo[5]
+wristRight.throttle=0.1
+wristLeft=kit.continuous_servo[6]
+wristLeft.throttle=0.1
+wristHorizontal=kit.continuous_servo[7]
+wristHorizontal.throttle=0.1
+#elbow servo
+elbow=kit.continuous_servo[8]
+elbow.throttle=0.1
+
+kit = ServoKit(channels=16)
 while True:
     finger1.throttle=1
+    time.sleep(0.2)
+    finger2.throttle=1
+    time.sleep(0.2)
+    finger3.throttle=1
+    time.sleep(0.2)
+    finger4.throttle=1
+    time.sleep(0.2)
+    finger5.throttle=1
+    time.sleep(0.2)
+    finger1.throttle=0
+    time.sleep(0.2)
+    finger2.throttle=0
+    time.sleep(0.2)
+    finger3.throttle=0
+    time.sleep(0.2)
+    finger4.throttle=0
+    time.sleep(0.2)
+    finger5.throttle=0
     time.sleep(1)
     finger1.throttle=-1
-    time.sleep(1)
-    finger1.throttle=0.1
+    time.sleep(0.2)
+    finger2.throttle=-1
+    time.sleep(0.2)
+    finger3.throttle=-1
+    time.sleep(0.2)
+    finger4.throttle=-1
+    time.sleep(0.2)
+    finger5.throttle=-1
+    time.sleep(0.2)
+    finger1.throttle=0
+    time.sleep(0.2)
+    finger2.throttle=0
+    time.sleep(0.2)
+    finger3.throttle=0
+    time.sleep(0.2)
+    finger4.throttle=0
+    time.sleep(0.2)
+    finger5.throttle=0
     time.sleep(1)

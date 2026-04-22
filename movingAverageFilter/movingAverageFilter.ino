@@ -105,9 +105,10 @@ void setup() {
     // pinMode(13, OUTPUT); LED
     a_high = RC_high / (RC_high + dt);
     a_low  = dt / (RC_low + dt);
-    pinMode(A6, OUTPUT);
+    pinMode(A6, OUTPUT);//emg
     pinMode(A7, OUTPUT);
-    pinMode(A8,OUTPUT);
+
+    pinMode(A8,OUTPUT);//eeg
     pinMode(A9,OUTPUT);
 
     digitalWrite(A6, LOW);  // idle
