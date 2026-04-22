@@ -32,42 +32,81 @@ kit = ServoKit(channels=16)
 while True:
     finger1.throttle=throttleHigh
     time.sleep(0.2)
+    finger1.throttle=throttleHigh
     finger2.throttle=throttleHigh
     time.sleep(0.2)
-    
-    # finger3.throttle=throttleHigh
-    # time.sleep(0.2)
-    # finger4.throttle=throttleHigh
-    # time.sleep(0.2)
-    # finger5.throttle=throttleHigh
-    # time.sleep(0.2)
-    # finger1.throttle=0
-    # time.sleep(0.2)
-    # finger2.throttle=0
-    # time.sleep(0.2)
-    # finger3.throttle=0
-    # time.sleep(0.2)
-    # finger4.throttle=0
-    # time.sleep(0.2)
-    # finger5.throttle=0
-    # time.sleep(1)
-    # finger1.throttle=throttleLow
-    # time.sleep(0.2)
-    # finger2.throttle=throttleLow
-    # time.sleep(0.2)
-    # finger3.throttle=throttleLow
-    # time.sleep(0.2)
-    # finger4.throttle=throttleLow
-    # time.sleep(0.2)
-    # finger5.throttle=throttleLow
-    # time.sleep(0.2)
-    # finger1.throttle=0
-    # time.sleep(0.2)
-    # finger2.throttle=0
-    # time.sleep(0.2)
-    # finger3.throttle=0
-    # time.sleep(0.2)
-    # finger4.throttle=0
-    # time.sleep(0.2)
-    # finger5.throttle=0
-    # time.sleep(1)
+    finger1.throttle=throttleHigh
+    finger2.throttle=throttleHigh
+    finger3.throttle=throttleHigh
+    time.sleep(0.2)
+    finger1.throttle=throttleHigh
+    finger2.throttle=throttleHigh
+    finger3.throttle=throttleHigh
+    finger4.throttle=throttleHigh
+    time.sleep(0.2)
+    finger1.throttle=throttleHigh
+    finger2.throttle=throttleHigh  
+    finger3.throttle=throttleHigh
+    finger4.throttle=throttleHigh
+    finger5.throttle=throttleHigh
+    time.sleep(0.2)
+    finger1.throttle=0
+    finger2.throttle=throttleHigh
+    finger3.throttle=throttleHigh
+    finger4.throttle=throttleHigh
+    finger5.throttle=throttleHigh
+    time.sleep(0.2)
+    finger2.throttle=0
+    finger3.throttle=throttleHigh
+    finger4.throttle=throttleHigh
+    finger5.throttle=throttleHigh
+    time.sleep(0.2)
+    finger3.throttle=0
+    finger4.throttle=throttleHigh
+    finger5.throttle=throttleHigh
+    time.sleep(0.2)
+    finger4.throttle=0
+    finger5.throttle=throttleHigh
+    time.sleep(0.2)
+    finger5.throttle=0
+    time.sleep(1)
+    finger1.throttle=throttleLow
+    time.sleep(0.2)
+    finger1.throttle=throttleLow
+    finger2.throttle=throttleLow
+    time.sleep(0.2)
+    finger1.throttle=throttleLow
+    finger2.throttle=throttleLow
+    finger3.throttle=throttleLow
+    time.sleep(0.2)
+    finger1.throttle=throttleLow
+    finger2.throttle=throttleLow
+    finger3.throttle=throttleLow
+    finger4.throttle=throttleLow
+    time.sleep(0.2)
+    finger1.throttle=throttleLow
+    finger2.throttle=throttleLow
+    finger3.throttle=throttleLow
+    finger4.throttle=throttleLow
+    finger5.throttle=throttleLow
+    time.sleep(0.2)
+    finger1.throttle=0
+    finger2.throttle=throttleLow
+    finger3.throttle=throttleLow
+    finger4.throttle=throttleLow
+    finger5.throttle=throttleLow
+    time.sleep(0.2)
+    finger2.throttle=0
+    finger3.throttle=throttleLow
+    finger4.throttle=throttleLow
+    finger5.throttle=throttleLow
+    time.sleep(0.2)
+    finger3.throttle=0
+    finger4.throttle=throttleLow
+    finger5.throttle=throttleLow
+    time.sleep(0.2)
+    finger4.throttle=0
+    finger5.throttle=throttleLow
+    time.sleep(0.2)
+    finger5.throttle=0
+    time.sleep(1)
