@@ -58,7 +58,7 @@ while True:
     f.setServoThrottleFilter(finger4, fingergroupPinH.value, fingergroupPinL.value,"small")
     f.setServoThrottleFilter(finger5, fingergroupPinH.value, fingergroupPinL.value,"small")
 
-    f.setServoThrottleFilter(wristLeft, wristLeftPinH.value, wristLeftPinL.value,"large")
-    f.setServoThrottleFilter(wristRight, wristRightPinH.value, wristRightPinL.value,"large")
-    f.setServoThrottleFilter(wristHorizontal, wristHorizontalPinH.value, wristHorizontalPinL.value,"large")
+    # f.setServoThrottleFilter(wristLeft, wristLeftPinH.value, wristLeftPinL.value,"large")
+    # f.setServoThrottleFilter(wristRight, wristRightPinH.value, wristRightPinL.value,"large")
+    # f.setServoThrottleFilter(wristHorizontal, wristHorizontalPinH.value, wristHorizontalPinL.value,"large")
     f.setServoThrottleFilter(elbow, elbowPinH.value, elbowPinL.value,"large")
