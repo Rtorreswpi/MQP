@@ -26,93 +26,41 @@ wristHorizontal.throttle=0.1
 #elbow servo
 elbow=kit.continuous_servo[8]
 elbow.throttle=0.1
-throttleHigh=0.5
-throttleLow=-0.5
+throttleHigh=1
+throttleLow=-1
 kit = ServoKit(channels=16)
 while True:
     finger1.throttle=throttleHigh
-    time.sleep(1)
+    finger2.throttle=throttleHigh
+    finger3.throttle=throttleHigh
+    finger4.throttle=throttleHigh
+    finger5.throttle=throttleHigh
+    time.sleep(3)
     finger1.throttle=throttleLow
+    finger2.throttle=throttleLow
+    finger3.throttle=throttleLow
+    finger4.throttle=throttleLow
+    finger5.throttle=throttleLow
+    time.sleep(3)
+    finger1.throttle=0
+    finger2.throttle=0
+    finger3.throttle=0
+    finger4.throttle=0
+    finger5.throttle=0
     time.sleep(1)
-
-
-    # finger1.throttle=throttleHigh
-    # time.sleep(0.2)
-    # finger1.throttle=throttleHigh
-    # finger2.throttle=throttleHigh
-    # time.sleep(0.2)
-    # finger1.throttle=throttleHigh
-    # finger2.throttle=throttleHigh
-    # finger3.throttle=throttleHigh
-    # time.sleep(0.2)
-    # finger1.throttle=throttleHigh
-    # finger2.throttle=throttleHigh
-    # finger3.throttle=throttleHigh
-    # finger4.throttle=throttleHigh
-    # time.sleep(0.2)
-    # finger1.throttle=throttleHigh
-    # finger2.throttle=throttleHigh  
-    # finger3.throttle=throttleHigh
-    # finger4.throttle=throttleHigh
-    # finger5.throttle=throttleHigh
-    # time.sleep(0.2)
-    # finger1.throttle=0
-    # finger2.throttle=throttleHigh
-    # finger3.throttle=throttleHigh
-    # finger4.throttle=throttleHigh
-    # finger5.throttle=throttleHigh
-    # time.sleep(0.2)
-    # finger2.throttle=0
-    # finger3.throttle=throttleHigh
-    # finger4.throttle=throttleHigh
-    # finger5.throttle=throttleHigh
-    # time.sleep(0.2)
-    # finger3.throttle=0
-    # finger4.throttle=throttleHigh
-    # finger5.throttle=throttleHigh
-    # time.sleep(0.2)
-    # finger4.throttle=0
-    # finger5.throttle=throttleHigh
-    # time.sleep(0.2)
-    # finger5.throttle=0
-    # time.sleep(1)
-    # finger1.throttle=throttleLow
-    # time.sleep(0.2)
-    # finger1.throttle=throttleLow
-    # finger2.throttle=throttleLow
-    # time.sleep(0.2)
-    # finger1.throttle=throttleLow
-    # finger2.throttle=throttleLow
-    # finger3.throttle=throttleLow
-    # time.sleep(0.2)
-    # finger1.throttle=throttleLow
-    # finger2.throttle=throttleLow
-    # finger3.throttle=throttleLow
-    # finger4.throttle=throttleLow
-    # time.sleep(0.2)
-    # finger1.throttle=throttleLow
-    # finger2.throttle=throttleLow
-    # finger3.throttle=throttleLow
-    # finger4.throttle=throttleLow
-    # finger5.throttle=throttleLow
-    # time.sleep(0.2)
-    # finger1.throttle=0
-    # finger2.throttle=throttleLow
-    # finger3.throttle=throttleLow
-    # finger4.throttle=throttleLow
-    # finger5.throttle=throttleLow
-    # time.sleep(0.2)
-    # finger2.throttle=0
-    # finger3.throttle=throttleLow
-    # finger4.throttle=throttleLow
-    # finger5.throttle=throttleLow
-    # time.sleep(0.2)
-    # finger3.throttle=0
-    # finger4.throttle=throttleLow
-    # finger5.throttle=throttleLow
-    # time.sleep(0.2)
-    # finger4.throttle=0
-    # finger5.throttle=throttleLow
-    # time.sleep(0.2)
-    # finger5.throttle=0
-    # time.sleep(1)
+    
+    # wristRight.throttle=throttleHigh
+    # wristLeft.throttle=throttleHigh
+    # wristHorizontal.throttle=throttleHigh
+    # time.sleep(3)
+    # wristRight.throttle=throttleLow
+    # wristLeft.throttle=throttleLow
+    # wristHorizontal.throttle=throttleLow
+    # time.sleep(3)
+    # wristRight.throttle=throttleHigh
+    # wristLeft.throttle=throttleHigh
+    # wristHorizontal.throttle=0
+    # time.sleep(3)
+    # wristRight.throttle=0
+    # wristLeft.throttle=0
+    # wristHorizontal.throttle=0
