@@ -153,9 +153,13 @@ void loop() {
                 digitalWrite(A6,HIGH);
                 digitalWrite(A7, LOW);
             }
+            // else if (ch2.isActive()){
+            //     digitalWrite(A7,HIGH);
+            //     digitalWrite(A6, LOW);
+            // }
             else {
-                digitalWrite(A7,HIGH);
                 digitalWrite(A6, LOW);
+                digitalWrite(A7, LOW);
             }
             // processEMGSignal(ch1, ch2);
         }
