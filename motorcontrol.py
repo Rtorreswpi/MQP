@@ -40,15 +40,15 @@ fingergroupPinL=DigitalInputDevice(14,pull_up=True)
 # fingerThumbPinL=DigitalInputDevice(23,pull_up=True)
 
 #wrist has 3 degrees of freedom, each controlled separately
-wristLeftPinH=DigitalInputDevice(9,pull_up=True)
-wristLeftPinL=DigitalInputDevice(25,pull_up=True)
-wristRightPinH=DigitalInputDevice(11,pull_up=True)
-wristRightPinL=DigitalInputDevice(8 ,pull_up=True)
-wristHorizontalPinH=DigitalInputDevice(6,pull_up=False)
-wristHorizontalPinL=DigitalInputDevice(12,pull_up=False)
+# wristLeftPinH=DigitalInputDevice(9,pull_up=True)
+# wristLeftPinL=DigitalInputDevice(25,pull_up=True)
+# wristRightPinH=DigitalInputDevice(11,pull_up=True)
+# wristRightPinL=DigitalInputDevice(8 ,pull_up=True)
+# wristHorizontalPinH=DigitalInputDevice(6,pull_up=False)
+# wristHorizontalPinL=DigitalInputDevice(12,pull_up=False)
 
-elbowPinH=DigitalInputDevice(19,pull_up=True)
-elbowPinL=DigitalInputDevice(16,pull_up=True)
+elbowPinH=DigitalInputDevice(22,pull_up=True)
+elbowPinL=DigitalInputDevice(23,pull_up=True)
 time.sleep(1)
 while True:
     #move fingers:pinky, ring and middle fingers
