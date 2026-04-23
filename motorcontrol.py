@@ -19,14 +19,14 @@ finger5=kit.continuous_servo[4]#thumb
 finger5.throttle=0
 #wrist servos
 wristRight=kit.continuous_servo[5]
-wristRight.throttle=0
+wristRight.throttle=0.1
 wristLeft=kit.continuous_servo[6]
-wristLeft.throttle=0
+wristLeft.throttle=0.1
 wristHorizontal=kit.continuous_servo[7]
-wristHorizontal.throttle=0
+wristHorizontal.throttle=0.1
 #elbow servo
 elbow=kit.continuous_servo[8]
-elbow.throttle=0
+elbow.throttle=0.1
 
 #Set pins for servo control
 #middle,ring and pinky fingers are controlled together
