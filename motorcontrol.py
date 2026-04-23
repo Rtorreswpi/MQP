@@ -30,8 +30,8 @@ elbow.throttle=0
 
 #Set pins for servo control
 #middle,ring and pinky fingers are controlled together
-fingergroupPinH=DigitalInputDevice(4,pull_up=True)
-fingergroupPinL=DigitalInputDevice(14,pull_up=True)
+fingergroupPinH=DigitalInputDevice(22,pull_up=True)
+fingergroupPinL=DigitalInputDevice(23,pull_up=True)
 
 #index finger is controlled separately
 # fingerindexPinH=DigitalInputDevice(17,pull_up=True)
@@ -47,8 +47,8 @@ fingergroupPinL=DigitalInputDevice(14,pull_up=True)
 # wristHorizontalPinH=DigitalInputDevice(6,pull_up=False)
 # wristHorizontalPinL=DigitalInputDevice(12,pull_up=False)
 
-elbowPinH=DigitalInputDevice(22,pull_up=True)
-elbowPinL=DigitalInputDevice(23,pull_up=True)
+elbowPinH=DigitalInputDevice(4,pull_up=True)
+elbowPinL=DigitalInputDevice(14,pull_up=True)
 time.sleep(1)
 while True:
     #move fingers:pinky, ring and middle fingers
