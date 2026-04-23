@@ -62,3 +62,5 @@ while True:
     # f.setServoThrottleFilter(wristRight, wristRightPinH.value, wristRightPinL.value,"large")
     # f.setServoThrottleFilter(wristHorizontal, wristHorizontalPinH.value, wristHorizontalPinL.value,"large")
     f.setServoThrottleFilter(elbow, elbowPinH.value, elbowPinL.value,"large")
+    if elbowPinH.value == 1 and elbowPinL.value == 0:
+        print("moving elbow forward")
