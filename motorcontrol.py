@@ -47,8 +47,8 @@ fingergroupPinL=DigitalInputDevice(14,pull_up=True)
 # wristHorizontalPinH=DigitalInputDevice(6,pull_up=False)
 # wristHorizontalPinL=DigitalInputDevice(12,pull_up=False)
 
-elbowPinH=DigitalInputDevice(4,pull_up=True)
-elbowPinL=DigitalInputDevice(14,pull_up=True)
+elbowPinH=DigitalInputDevice(22,pull_up=True)
+elbowPinL=DigitalInputDevice(23,pull_up=True)
 time.sleep(1)
 while True:
     #move fingers:pinky, ring and middle fingers
