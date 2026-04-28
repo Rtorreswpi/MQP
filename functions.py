@@ -7,7 +7,7 @@ def setServoThrottleFilter(servo, pin1, pin2,servoType):
     """Sets the throttle of a servo based on the state of two pins"""
     if pin1 == 1 and pin2 == 0:
         servo.throttle = 1
-    elif pin1 == 0 and pin2 == 1:
+    elif pin1 == 0 and pin2 == 1:\
         servo.throttle = -1
     else:#large servos need a small amount of throttle to hold position, small servos can be stopped completely
 
