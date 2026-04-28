@@ -4,7 +4,6 @@ from gpiozero import Button, DigitalInputDevice
 from signal import pause
 import functions as f
 # Set channels to the number of servo channels on your kit.
-# 8 for FeatherWing, 16 for Shield/HAT/Bonnet.
 kit = ServoKit(channels=16)
 #finger servos
 finger1=kit.continuous_servo[0]#pinky
@@ -29,23 +28,23 @@ elbow=kit.continuous_servo[8]
 elbow.throttle=0.1
 
 #Set pins for servo control
-#middle,ring and pinky fingers are controlled together
+#fingers are controlled together
 fingergroupPinH=DigitalInputDevice(22,pull_up=True)
 fingergroupPinL=DigitalInputDevice(23,pull_up=True)
 
-#index finger is controlled separately
+#index finger is controlled separately(unused)
 # fingerindexPinH=DigitalInputDevice(17,pull_up=True)
 # fingerindexPinL=DigitalInputDevice(18,pull_up=True)
 # fingerThumbPinH=DigitalInputDevice(22,pull_up=True)
 # fingerThumbPinL=DigitalInputDevice(23,pull_up=True)
 
 #wrist has 3 degrees of freedom, each controlled separately
-# wristLeftPinH=DigitalInputDevice(9,pull_up=True)
-# wristLeftPinL=DigitalInputDevice(25,pull_up=True)
-# wristRightPinH=DigitalInputDevice(11,pull_up=True)
-# wristRightPinL=DigitalInputDevice(8 ,pull_up=True)
-# wristHorizontalPinH=DigitalInputDevice(6,pull_up=False)
-# wristHorizontalPinL=DigitalInputDevice(12,pull_up=False)
+wristLeftPinH=DigitalInputDevice(9,pull_up=True)
+wristLeftPinL=DigitalInputDevice(25,pull_up=True)
+wristRightPinH=DigitalInputDevice(11,pull_up=True)
+wristRightPinL=DigitalInputDevice(8 ,pull_up=True)
+wristHorizontalPinH=DigitalInputDevice(6,pull_up=False)
+wristHorizontalPinL=DigitalInputDevice(12,pull_up=False)
 
 elbowPinH=DigitalInputDevice(4,pull_up=True)
 elbowPinL=DigitalInputDevice(14,pull_up=True)
@@ -58,9 +57,9 @@ while True:
     f.setServoThrottleFilter(finger4, fingergroupPinH.value, fingergroupPinL.value,"small")
     f.setServoThrottleFilter(finger5, fingergroupPinH.value, fingergroupPinL.value,"small")
 
+    #wrist, unused for now
     # f.setServoThrottleFilter(wristLeft, wristLeftPinH.value, wristLeftPinL.value,"large")
     # f.setServoThrottleFilter(wristRight, wristRightPinH.value, wristRightPinL.value,"large")
     # f.setServoThrottleFilter(wristHorizontal, wristHorizontalPinH.value, wristHorizontalPinL.value,"large")
+    #elbow
     f.setServoThrottleFilter(elbow, elbowPinH.value, elbowPinL.value,"large")
-    if elbowPinH.value != 0 or elbowPinL.value != 0:
-        print("elbowPinH: " + str(elbowPinH.value) + " elbowPinL: " + str(elbowPinL.value))
