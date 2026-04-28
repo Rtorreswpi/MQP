@@ -89,7 +89,7 @@ struct EMGChannel {
 };
 //biceps 0.1f, triceps 0.04f
 EMGChannel ch1("Biceps",   EMG_PIN_CH1, 0.1f); //change the third variable for active.
-EMGChannel ch2("Triceps", EMG_PIN_CH2, 0.08f); //change the third variable for active. 
+EMGChannel ch2("Triceps", EMG_PIN_CH2, 0.1f); //change the third variable for active. 
 
 const uint32_t SAMPLE_INTERVAL_US = 1000000 / SAMPLE_RATE_HZ;
 
